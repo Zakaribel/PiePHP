@@ -35,6 +35,10 @@ class Core
             }
         }
 
+    }
+    public function getRoute(){
         
+      
+
     }
 }
