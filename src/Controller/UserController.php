@@ -4,11 +4,15 @@ class UserController {
 
 
     public function addAction(){
+
         echo "hello";
+        
     }
 
     public function indexAction(){
-        echo "index tah l'user controller...";
+
+        echo "index de l'user controller...";
+
     }
     
 }

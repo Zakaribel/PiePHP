@@ -27,12 +27,14 @@ class Core
                     } else {
                         echo "404";
                     }
-                }else {
+                } else {
                     $controller->indexAction();
                 }
-            }else {
+            } else {
                 echo "404";
             }
         }
+
+        
     }
 }
