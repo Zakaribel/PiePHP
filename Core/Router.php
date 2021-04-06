@@ -16,7 +16,8 @@ class Router
 		if (isset(self::$routes[$url])) {
 			return self::$routes[$url];
 		} else {
-			return ['controller' => 'error', 'action' => 'error'];
+			echo "Désolé chemin inexistant.";
+			die;
 		}
 	}
 }
