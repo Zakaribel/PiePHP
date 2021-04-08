@@ -9,8 +9,11 @@ class Request{
     private static $_GET;
     private static $_POST;
 
-    $this->$_GET = htmlspecialchars($_GET);
-
-
+    public function __construct(){
+        var_dump($this->$_POST);
+    }
+    
 
 }
+
+$obj= new Request();
