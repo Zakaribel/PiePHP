@@ -44,19 +44,19 @@ class UserModel
         return $query->fetchAll();
     }
 
-    public function read($champ, $id)
+    public function read($field, $id)
     {
         $query = $this->bdd->prepare('select ? from Users where id=?');
-        $query->execute(array($champ, $id));
+        $query->execute(array($field, $id));
         return $query->fetchAll();        
     }
 
-    public function update($col, $champ, $id = "id")
+    public function update($col, $field, $id = "id")
     {
         $query = $this->bdd->prepare('update Users set ?=? where id=?');
         $query->execute(array(
             $col,
-            $champ,
+            $field,
             $id
         ));
     }
