@@ -1,9 +1,15 @@
 <?php
 
+namespace Core;
 class Controller
 {
     public static $_render;
 
+
+    public function __construct()
+    {
+        new \Core\Request($_POST,$_GET);
+    }
     protected function render($view, $scope = [])
     {
         extract($scope);

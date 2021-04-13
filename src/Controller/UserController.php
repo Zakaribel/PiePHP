@@ -1,9 +1,9 @@
 <?php
 namespace Controller;
 use Model;
-class UserController {
+class UserController extends \Core\Controller {
 
-
+ 
     public function addAction(){
 
         echo "hello";
