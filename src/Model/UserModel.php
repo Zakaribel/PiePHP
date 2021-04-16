@@ -4,18 +4,21 @@ namespace Model;
 
 use Core;
 
-class UserModel
+class UserModel extends Core\Entity
 {
     protected $connexion;
     protected $bdd;
     private $mail;
     private $password;
+    
 
-
-    public function __construct()
+    public function __construct($fields = [])
     {
-        $this->connexion = new Core\Database();
+        parent::__construct('users',$fields);
+        $this->connexion = new \Core\Database();
         $this->bdd = $this->connexion->getDB();
+
+
     }
 
     public function setMail($mail)
@@ -29,45 +32,39 @@ class UserModel
     }
 
     public function save(){
-        $query = $this->bdd->prepare('insert into Users (email,password) VALUES (?,?)');
-        $query->execute(array($this->mail, $this->password));
+
+        $this->fields = ["email" => $this->mail, "password" => $this->password];
+        parent::create();
+
 
     }
 
     // CRUD //
 
 
-    public function create($mail, $pass)
+    public function create()
     {
-        $query = $this->bdd->prepare('insert into Users (email,password) VALUES (?,?)');
-        $query->execute(array($mail, $pass));
-        return $query->fetchAll();
+    
+        $this->fields = ["email" => $this->mail, "password" => $this->password]; // COMMENT RECUP L'ID ?
+        return parent::create();   
+    
     }
 
-    public function read($field, $id)
+    public function read()
     {
-        $query = $this->bdd->prepare('select ? from Users where id=?');
-        $query->execute(array($field, $id));
-        return $query->fetchAll();        
+        return parent::read();         
     }
 
-    public function update($col, $field, $id = "id")
+    public function update()
     {
-        $query = $this->bdd->prepare('update Users set ?=? where id=?');
-        $query->execute(array(
-            $col,
-            $field,
-            $id
-        ));
+        return parent::update();
     }
 
-    public function delete($id){
-        $query = $this->bdd->prepare('delete from Users where id=?');
-        $query->execute(array($id));
+    public function delete(){
+        return parent::delete();
     }
 
     public function read_all(){
-        $query = $this->bdd->query('select * from Users');
-        return $query->fetchAll();
+        return parent::find();
     }
 }

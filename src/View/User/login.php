@@ -9,7 +9,7 @@
 <body>
     
 
-<form action="./index.php" method="POST">
+<form action="http://pie.localhost/login" method="POST">
     <label for="email">Email</label>
     <input type="email" name="email" id="email">
     <label for="password">Password</label>

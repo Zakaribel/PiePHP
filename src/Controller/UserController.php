@@ -3,32 +3,37 @@ namespace Controller;
 use Model;
 class UserController extends \Core\Controller {
 
- 
     public function addAction(){
 
-        echo "hello";
+        echo "hello add action";
         
     }
 
     public function indexAction(){
 
-        echo "index de l'user controller...";
+        $this->render("index");
+    }
+   
+    public function registerAction(){
+
+        $this->render("register");   
+       
+        
+        $post = $this->request->getQueryParams(0);
+        $userModel = new Model\UserModel($post);
+
+        if(!empty($post)){
+            $userModel->setPassword($post['psw']);
+            $userModel->setMail($post['email']);
+            $userModel->create();
+        }
 
     }
 
+   
 
-    public function registerAction(){
-        $email = "";
-        $password ="";
-        $userModel = new Model\userModel();
-        if(isset($_POST)){
-            $_POST['email'] = $email;
-            $_POST['psw'] = $password;
-            $userModel->setPassword($password);
-            $userModel->setMail($email);
-            $userModel->save();
-        }
-
+    public function loginAction(){
+        $this->render("login");
     }
     
 }

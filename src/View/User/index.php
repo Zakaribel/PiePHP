@@ -7,6 +7,6 @@
     <title>PiePHP</title>
 </head>
 <body>
-    
+    <?= $view ?>
 </body>
 </html>

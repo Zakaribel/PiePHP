@@ -9,7 +9,7 @@
 </head>
 <body>
     
-<form action="#" method="POST">
+<form action="http://pie.localhost/register" method="POST">
   <div class="container">
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
@@ -24,8 +24,6 @@
     <button type="submit" class="registerbtn">Register</button>
   </div>
 </form>
-
-
 
 </body>
 </html>
