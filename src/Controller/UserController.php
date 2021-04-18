@@ -77,7 +77,7 @@ class UserController extends \Core\Controller
                 $_SESSION['user'] = $accountExists;
                 header('Location: http://pie.localhost/index');
             } else {
-                echo "<p style='text-align:center;color:red;'>Email or password is incorrect ! Maybe you're not registered yet ?</p>";
+                echo "<p style='color:green;background-color:yellow;font-weight:bold;text-align:center;'>Email or password is incorrect ! Maybe you're not registered yet ?</p>";
             }
         }
 

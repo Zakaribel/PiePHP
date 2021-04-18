@@ -12,8 +12,11 @@
 
 <body>
 
-
-    <h2 style="text-align: center;">Login</h2>
+    <div style="text-align: center;">
+        <h1>Login</h1>
+      <p>Please fill in this form in order to login.</p>
+      <hr>
+      </div>
     <form action="http://pie.localhost/login" method="POST" style="text-align: center;">
         <label for="email">Email</label>
         <input type="email" name="email" id="email" required>
