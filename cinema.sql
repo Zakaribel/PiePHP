@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 15 avr. 2021 à 11:34
+-- Généré le : Dim 18 avr. 2021 à 14:45
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -119,10 +119,19 @@ CREATE TABLE IF NOT EXISTS `genre` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(250) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `email`, `password`) VALUES
+(73, 'zak@test.fr', '23e591e8c36dda987970603ad0fdd031b7dff9f9'),
+(72, 'test@test.fr', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
