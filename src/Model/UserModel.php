@@ -12,7 +12,7 @@ class UserModel extends Core\Entity
     private $password;
     
 
-    public function __construct($fields = [])
+    public function __construct(array $fields = [])
     {
         parent::__construct('users',$fields);
         $this->connexion = new \Core\Database();
@@ -29,6 +29,14 @@ class UserModel extends Core\Entity
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    public function getPassword(){
+        return $this->password;
+    }
+
+    public function getMail(){
+        return $this->mail;
     }
 
     public function save(){

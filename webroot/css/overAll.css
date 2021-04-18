@@ -1,0 +1,85 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: linear-gradient(100deg, #9c1111 , #eecfbb);
+
+}
+
+button {
+    
+    position: relative;
+    width: 350px;
+    height: 50px;
+    font-size: 24px;
+    background: #d3cbc6;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+  
+}
+
+ul {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    background: rgb(173, 112, 112);
+    transform-origin: top;
+    transform: perspective(1000px) rotateX(-90deg);
+    transition: 0.5s;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul.active {
+    transform: perspective(1000px) rotateX(0deg);
+}
+
+ul li a {
+    display: block;
+    width: 350px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    background: rgb(0, 0, 0);
+    color: rgb(245, 239, 239);
+    border-bottom: 1px solid;
+    transition: 0.5s;
+    
+}
+
+ul li a:hover {
+    background: #708ca1;
+}
+.dropdown{
+    position: relative;
+    left:880px;
+    top:135px;
+}
+h1{
+    
+    position: absolute;
+    left:980px;
+    top: 120px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: underline double #000000;
+    letter-spacing: 2px;
+    
+}
+
+img{
+    position: absolute;
+    left:84%;
+    width: 240px;
+   
+}
+
+p{
+
+font-family: 'Poppins', sans-serif;
+font-weight: bold;
+
+}

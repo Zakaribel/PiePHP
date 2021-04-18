@@ -8,6 +8,7 @@ class Entity
     public $table;
     public $fields;
     public $orm;
+    public $id;
 
     public function __construct($table, array $array = [])
     {
@@ -56,6 +57,8 @@ class Entity
 
     public function find()
     {
-        return $this->orm->find($this->table);
+        
+        return $this->orm->find($this->table,$this->fields);
+
     }
 }

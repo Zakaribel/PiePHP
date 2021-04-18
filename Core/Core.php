@@ -11,7 +11,7 @@ class Core
     {
         // $params = explode('/', substr($_SERVER['REQUEST_URI'], 1));
 
-        // if (count($params) <= 1 && $params[0] == "") {
+        // if (count($params) <= 1 OR $params[0] == "") {
         //     $controller = new Controller\AppController();
         //     $controller->indexAction();
         // } else {

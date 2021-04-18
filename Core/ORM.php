@@ -42,11 +42,14 @@ class ORM
             $ArrayOfFields[] = $v;
         }
 
-        $update = implode(", ", $ArrayOfFields);
-        $query = "UPDATE $table SET ? WHERE id = ?";
-        $statement = $this->bdd->prepare($query);
-        $statement->execute(array($update, $id));
-        if ($this->statement->execute(array($update, $id))) {
+
+        $update = implode(" = ", $ArrayOfFields);
+
+        $statement = $this->bdd->prepare("UPDATE $table SET $update WHERE id = $id");
+        $statement->execute();
+        // var_dump($statement);
+
+        if ($statement->execute()) {
             return true;
         } else {
             return false;
@@ -67,7 +70,7 @@ class ORM
     }
 
 
-    public  function find($table, $params = array('WHERE' => '', 'ORDER BY' => '', 'LIMIT' => ''))
+    public function find($table, $params = array('WHERE' => '', 'ORDER BY' => '', 'LIMIT' => ''))
     {
         if (isset($params)) {
 			$stringParams = '';
@@ -77,8 +80,9 @@ class ORM
                 }	
             }
         }
-        $query = $this->bdd->prepare("SELECT * FROM $table ?");
-        $query->execute(array($stringParams));
+      
+        $query = $this->bdd->prepare("SELECT * FROM $table $stringParams");
+        $query->execute();
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }   
 }
